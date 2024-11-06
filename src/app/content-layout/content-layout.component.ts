@@ -43,7 +43,7 @@ export class ContentLayoutComponent implements OnInit {
     this.service.destroycookie().subscribe({
       next: () => {
         localStorage.removeItem('token');  // Remove any token from localStorage
-    // Reload the page to reset the session and redirect to login
+        window.location.reload();  // Reload the page to reset the session and redirect to login
         this.checkauth();
       },
       error: (err) => {
