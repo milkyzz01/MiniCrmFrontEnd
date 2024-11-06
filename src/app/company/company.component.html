@@ -1,0 +1,49 @@
+<app-loader></app-loader>
+<div class="container">
+    <div class="d-flex mt-5 justify-content-between mb-2">
+    <h1 class="">Companies List</h1>
+    <button mat-raised-button (click)="navigatetoAddCompany()"  class="setBgToAccentColor">Add Company</button>
+    </div>
+    <table mat-table [dataSource]="companiesResponse" class="mat-elevation-z3">
+      <ng-container matColumnDef="companyID">
+          <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Company ID </th>
+          <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.companyID}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="companyName">
+          <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Company Name </th>
+          <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.companyName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="companyEmail">
+          <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Company Email </th>
+          <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.companyEmail}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Action </th>
+          <td mat-cell *matCellDef="let element" class="centered-cell">
+              <div class="action">
+                  <mat-icon (click)="toggleOptions(element)">more_vert</mat-icon>
+                  <div *ngIf="selectedElement === element" class="options-dropdown">
+                      <div (click)="viewDetails(element.companyID)">View Details</div>
+                      <div (click)="deleteElement(element)">Delete</div>
+                  </div>
+              </div>
+          </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="position-relative"></tr>
+  </table>
+  
+  
+  
+    <mat-paginator
+      [pageSize]="4"
+      [pageSizeOptions]="[4, 8, 12]"
+      showFirstLastButtons
+      class="mt-0 border-1 mat-elevation-z3 w-100">
+    </mat-paginator>
+  </div>
+  

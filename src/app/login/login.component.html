@@ -1,0 +1,32 @@
+<app-loader></app-loader>
+<div class="containerr container">
+    <div class="background-design">
+      <div class="shape3"></div>
+      <div class="shape4"></div>
+      <div class="shape5"></div>
+    </div>
+    
+    <div class="header">
+      <!-- Header content (optional) -->
+    </div>
+  
+    <div class="form-container">
+      <h2 class="text-center fw-bold">Login</h2>
+      <form (ngSubmit)="login()">
+        <div class="form-group mb-3">
+          <label for="username">Username</label>
+          <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="password">Password</label>
+          <input type="password" [(ngModel)]="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  
+    <div class="footer">
+      <!-- Footer content (optional) -->
+    </div>
+  </div>
+  

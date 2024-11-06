@@ -1,0 +1,53 @@
+<app-loader></app-loader>
+<div class="container">
+    <div class="d-flex mt-5 justify-content-between mb-2">
+        <h1 class="">Employee List</h1>
+        <button mat-raised-button (click)="navigateToAddEmployee()" class="setBgToAccentColor">Add Employee</button>
+    </div>
+    
+    <table mat-table [dataSource]="employeesData" class="mat-elevation-z3">
+      <ng-container matColumnDef="employeeID">
+        <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Employee ID </th>
+        <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.employeeID}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="employeeName">
+        <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Employee Name </th>
+        <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.employeeName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="employeeCompany">
+        <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Employee Company </th>
+        <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.companyName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="dateCreated">
+        <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Date Created </th>
+        <td mat-cell *matCellDef="let element" class="centered-cell"> {{element.dateCreated}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef class="setBgToPrimaryColor centered-cell"> Action </th>
+        <td mat-cell *matCellDef="let element" class="centered-cell">
+          <div class="action">
+            <mat-icon (click)="toggleOptions(element)">more_vert</mat-icon>
+            <div *ngIf="selectedElement === element" class="options-dropdown">
+                <div (click)="viewDetails({employeeID: element.employeeID, employeeCompany: element.companyName})">View Details</div>
+                <div (click)="deleteElement(element)">Delete</div>
+            </div>
+         </div>
+          </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="position-relative"></tr>
+    </table>
+    
+  
+    <mat-paginator
+      [pageSize]="4"
+      [pageSizeOptions]="[4, 8, 12]"
+      showFirstLastButtons
+      class="mt-0 border-1 mat-elevation-z3 w-100">
+    </mat-paginator>
+</div>

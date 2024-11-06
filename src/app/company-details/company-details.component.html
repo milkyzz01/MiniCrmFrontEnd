@@ -1,0 +1,36 @@
+<div class="container">
+    <mat-icon class="mt-1 cursor-pointer" (click)="goBack()">arrow_back</mat-icon>
+    <div class="container d-flex align-items-center gap-5 custom-justify">
+    <div class="custom-profile mt-4 mb-5"><img [src]="'http://localhost:3000/' + companyDetails?.companyLogo" alt="Company Logo" />
+        <h1 class="text-center mt-3 fw-bold">{{ companyDetails?.companyName }}</h1>
+    </div>
+    <div>
+    <h3><span class="fw-bold">Email:</span> {{ companyDetails?.companyEmail }}</h3>
+    <h3><span class="fw-bold">Address:</span> {{ companyDetails?.companyAddress }}</h3>
+    <h3><span class="fw-bold">Phone Number:</span> {{ companyDetails?.companyPhone }}</h3>
+    <h3><span class="fw-bold">No. of Employee/s:</span> {{ filteredEmployee?.length }}</h3>
+    </div>
+</div>
+<div class="table-responsive mt-5 table-overflow">
+    <h2>Employees In The Company</h2>
+    <table class="table table-hover text-center w-100 h-50">
+      <thead class="table-head">
+        <tr>
+          <th class="bg-primary">Employee Name</th>
+          <th class="bg-primary">Date Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of filteredEmployee">
+          <td>{{ employee.employeeName }}</td>
+          <td>{{ employee.dateCreated }}</td>
+        </tr>
+        <!-- if the student has no records -->
+        <tr *ngIf="!filteredEmployee.length">
+          <td colspan="4">No Employees</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  

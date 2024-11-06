@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="mt-5 container">Dashboard</h1>
+    <div class="row g-3 p-3">
+    <div class="col-md-6 ">
+    <mat-card class="card p-1 bg-secondary mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>Total Companies</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ companylength }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-6 ">
+      <mat-card class="card p-1 bg-secondary mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>Total Employees</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ employeeLength }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+      <!--pie chart-->
+      <mat-card class="p-3 col-md-12 mt-3 mat-elevation-z4">
+        <mat-card-header class="mb-3">
+          <mat-card-title>Employee Age Distribution</mat-card-title>
+          <mat-card-subtitle>Select a company to see the age distribution of employees.</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class=" d-flex justify-content-center align-items-center flex-wrap">
+            <canvas class="fw-bold w-50 custom-pie-height" id="PieChart">{{ pieChart }}</canvas>
+            <div class="d-flex gap-3 align-items-center">
+              <label for="companySelect" class="fw-bold fs-6">Select Company:</label>
+              <select id="companySelect" class="btn btn-secondary p-1" (change)="onCompanyChange($event)">
+                <option class="bg-dark" *ngFor="let company of companies2" [value]="company.companyID"> {{ company.companyName }}</option>
+              </select>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    
+    <!--graph-->
+    <mat-card class="w-100 col-md-12 mt-3 mat-elevation-z4 p-3">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <canvas class="custom-width fw-bold custom-chart-height" id="MyChart">{{ chart }}</canvas>
+          <div class="pagination mt-2 d-flex gap-3 align-items-center">
+            <button (click)="prevPage()" class="btn setBgToPrimaryColor" [disabled]="currentPage === 1">Previous</button>
+            <span>Page {{ currentPage }}</span>
+            <button (click)="nextPage()" class="btn setBgToPrimaryColor" [disabled]="currentPage * itemsPerPage >= companies.length">Next</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+</div>  
+   
+

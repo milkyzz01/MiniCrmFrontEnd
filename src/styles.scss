@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body{
+    overflow-x: hidden;
+}
+
+// Color Variables
+$primary-color: #ff7e5f;
+$secondary-color: #feb47b;
+$accent-color: #a8e6cf;
+

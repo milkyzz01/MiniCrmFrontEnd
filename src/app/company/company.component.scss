@@ -1,0 +1,38 @@
+@import '../../styles.scss';
+
+.centered-cell {
+    text-align: center;
+  }
+.setBgToPrimaryColor{
+  background-color: $secondary-color !important;
+}
+.setBgToAccentColor{
+  background-color: $accent-color !important;
+}
+
+
+.action {
+   display: inline-block;
+}
+
+.options-dropdown {
+  position: absolute; /* Position it absolutely within the action div */
+  background-color: white; /* Background color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow for dropdown */
+  z-index: 2; /* Ensure it appears above other elements */
+  top: 100%; /* Center it vertically with respect to the icon */
+  right: 10%;
+  transform: translateY(-50%); /* Center it vertically */
+  margin-left: 8px; /* Space between the icon and dropdown */
+  border-radius: 4px; /* Rounded corners */
+  width: 120px; /* Optional: set a width for the dropdown */
+}
+
+.options-dropdown div {
+  padding: 8px 12px; /* Padding for options */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.options-dropdown div:hover {
+  background-color: #f0f0f0; /* Highlight on hover */
+}
