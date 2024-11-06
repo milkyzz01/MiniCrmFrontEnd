@@ -11,18 +11,18 @@ import { ApiResponse, PostData, Company, Employee } from './data.model';
 export class ServicesService{
 
   //variables
-  private apiUrl: string = 'http://localhost:3000/login';
-  private apiUrlGetCompanies: string = 'http://localhost:3000/companies';
-  private apiUrlGetEmployees: string = 'http://localhost:3000/employees';
-  private apiUrlEmployeeDetails: string = 'http://localhost:3000/employeeDetails';
-  private apiUrlAddEmployee: string = 'http://localhost:3000/addEmployee';
-  private apiUrlViewCompany: string = 'http://localhost:3000/companyDetails';
-  private apiUrlAddCompany: string = 'http://localhost:3000/addcompany';
-  private apiUrlDeleteCompany: string = 'http://localhost:3000/deleteCompany';
-  private apiUrlDeleteEmployee: string = 'http://localhost:3000/deleteEmployee';
-  private apiUrlViewEmployee: string = 'http://localhost:3000/detailsEmployee';
-  private apiUrlcheckauth: string = 'http://localhost:3000/check-auth';
-  private apiUrllogout: string = 'http://localhost:3000/logout';
+  private apiUrl: string = 'https://nodeexpressminicrm.onrender.com/login';
+  private apiUrlGetCompanies: string = 'https://nodeexpressminicrm.onrender.com/companies';
+  private apiUrlGetEmployees: string = 'https://nodeexpressminicrm.onrender.com/employees';
+  private apiUrlEmployeeDetails: string = 'https://nodeexpressminicrm.onrender.com/employeeDetails';
+  private apiUrlAddEmployee: string = 'https://nodeexpressminicrm.onrender.com/addEmployee';
+  private apiUrlViewCompany: string = 'https://nodeexpressminicrm.onrender.com/companyDetails';
+  private apiUrlAddCompany: string = 'https://nodeexpressminicrm.onrender.com/addcompany';
+  private apiUrlDeleteCompany: string = 'https://nodeexpressminicrm.onrender.com/deleteCompany';
+  private apiUrlDeleteEmployee: string = 'https://nodeexpressminicrm.onrender.com/deleteEmployee';
+  private apiUrlViewEmployee: string = 'https://nodeexpressminicrm.onrender.com/detailsEmployee';
+  private apiUrlcheckauth: string = 'https://nodeexpressminicrm.onrender.com/check-auth';
+  private apiUrllogout: string = 'https://nodeexpressminicrm.onrender.com/logout';
   private loadingSubject = new BehaviorSubject<boolean>(false);
   loading$ = this.loadingSubject.asObservable();
 

@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
 
   // pie chart config
   public Pieconfig: any = {
-    type: 'pie',
+    type: 'doughnut',
     data: {
       labels: ['Under 25', '25 and Over'],
       datasets: [{
