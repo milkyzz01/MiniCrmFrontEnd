@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ServicesService } from '../services.service';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 import { LoaderComponent } from "../loader/loader.component";
 import Swal from 'sweetalert2';
 
@@ -37,7 +38,7 @@ export class AddEmployeeComponent implements OnInit {
 
   //constructor
   
-  constructor(private service: ServicesService){}
+  constructor(private service: ServicesService, private router: Router){}
 
   //handle file 
   onFileSelected(event: Event) {
@@ -96,7 +97,9 @@ export class AddEmployeeComponent implements OnInit {
             text: 'You have inserted successfully.',
             icon: 'success',
             confirmButtonText: 'OK'
-          })
+          }).then(() =>{
+            this.router.navigate(['content/employee'])
+          });
         }
       },
       error: (err) => {

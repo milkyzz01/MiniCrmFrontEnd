@@ -9,6 +9,7 @@ import { ServicesService } from '../services.service';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from "../loader/loader.component";
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-company',
@@ -26,7 +27,7 @@ export class AddCompanyComponent {
   companyAddress: string = '';
   companyPhone: string = '';
 
-  constructor(private service: ServicesService) {}
+  constructor(private service: ServicesService, private router: Router) {}
 
   //methods
   goBack() {
@@ -67,6 +68,8 @@ export class AddCompanyComponent {
             text: 'You have inserted successfully.',
             icon: 'success',
             confirmButtonText: 'OK'
+          }).then(() =>{
+            this.router.navigate(['content/company'])
           });
         }
       },
