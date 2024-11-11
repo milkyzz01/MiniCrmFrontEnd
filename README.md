@@ -1,4 +1,5 @@
 # AngularTest
+Some features ike logging In takes time to load due to free trial deployment please be patient thank you
 
 # Login Credentials
 username: milky
